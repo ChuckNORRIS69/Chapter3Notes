@@ -11,13 +11,14 @@ while (answer != "chicken" && answer != "beef" && answer != "tofu"){
 let answer2 = readLine.question("Would you like a beverage with it?: ");
 while (answer2 != "yes" && answer2 != "no") {
     console.log("invalid choice");
-    answer2 = readLine.question("Would you like a beverage with it?: ");
-    answer3 = readLine.question("What size?(Small: $3.25, Medium: $5, Large: $6.50): ");
+    answer2 = readLine.question("Would you like a beverage with it?: \n What size? Small: $3.25, Medium: $5, Large: $6.50: ;");
+     if (answer2  != "yes") ;
 }
 
 let answer3 = readLine.question("Would you like a side of fries with it?: ");
     while (answer3 != "yes" && answer3 != "no") {
     console.log("invalid choice");
+        answer3 = readLine.question("What size?(Small: $3.25, Medium: $5, Large: $6.50): ");
 }
 
 
