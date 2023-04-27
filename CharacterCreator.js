@@ -1,8 +1,8 @@
 const readLine = require('readline-sync');
 
-let diceRolled =[];
-let character1 = {
-    //empty to start
+let diceRolled = [];
+let character1={
+//empty to start
 }
 
 createChar(character1, diceRolled);
@@ -12,29 +12,28 @@ function rolld6(){
 }
 
 function rollDice(amount, list){
-    for (let i = 0; i < amount; i++){
+    for (let i =0; i<amount; i++){
         let roll = rolld6();
         console.log(`You rolled a ${roll}!`);
-        list.push(roll)
+        list.push(roll);
     }
 }
 
-
-function sum(list) {
+function sum(list){
     let sum = 0;
     for (let i=0; i<list.length; i++){
-        sum += list  [1]
+        sum+=list [1]
     }
     return sum;
 }
 
-function  rollStat(list) {
-    list = [];
+function rollStat(list){
+    list=[];
     rollDice(4, list);
-    return sum(list)
+    return sum(list);
 }
 
-function  createChar(character,list) {
+function createChar(character, list){
     character.name = readLine.question("Enter character name: ");
     console.log("Rolling STR");
     character.strength = rollStat(diceRolled);
@@ -48,60 +47,26 @@ function  createChar(character,list) {
     character.wisdom = rollStat(diceRolled);
     console.log("Rolling CHA");
     character.charisma = rollStat(diceRolled);
-    console.log("Rolling CHA");
-    character.fortune = rollStat(diceRolled);
-    console.log("Rolling HIH");
-    character.Height = rollStat(diceRolled);
-    console.log("Rolling age");
-    character.Age = rollStat(diceRolled);
-
-    let answer = readLine.question("Welcome to the great fortune place. Do you want to know your fortune? yes or no: ");
-    while (answer != "yes" && answer != "no"){
-        console.log("invalid choice");
-        answer = readLine.question("Enter y or n: ");
-    }
-    let answer2 = readLine.question("Ask your question: ");
-
-    let answerList = ['It is certain.', 'Without a doubt.', 'My reply is no.', 'My sources say no.', 'Ask again later.', 'Reply hazy, try again'];
-
-    let randomNum = Math.floor(Math.random()*answerList.length);
-
-    let randomAnswer = answerList[randomNum];
-    console.log(randomAnswer);
-    console.log(character);
+    console.log("Rolling HGT");
+    character.height = rollStat(diceRolled);
+    console.log("Rolling AGE");
+    character.age = rollStat(diceRolled);
+    console.log("Rolling KID");
+    character.kids = rollStat(diceRolled);
     displayChar(character);
 }
 
-function displayChar(Char){
-    console.log('----------------------');
-    console.log(`Name: ${Char.Name}`);
-    console.log(`STR: ${Char.strength}`);
-    console.log(`DEX: ${Char.dexerity}`);
-    console.log(`CON: ${Char.constitution}`);
-    console.log(`INT: ${Char.intelligence}`);
-    console.log(`WIS: ${Char.wisdom}`);
-    console.log(`CHA: ${Char.charisma}`);
-    console.log(`FOR: ${Char.fortune}`);
-    console.log(`HIH: ${Char.height}`);
-    console.log(`FOR: ${Char.age}`);
+function displayChar(char){
     console.log('-----------------------');
+    console.log(`Name: ${char.name}`);
+    console.log(`STR: ${char.strength}`);
+    console.log(`DEX: ${char.dexerity}`);
+    console.log(`CON: ${char.constitution}`);
+    console.log(`INT: ${char.intelligence}`);
+    console.log(`WIS: ${char.wisdom}`);
+    console.log(`CHA: ${char.charisma}`);
+    console.log(`HGT: ${char.height}`);
+    console.log(`AGE: ${char.age}`);
+    console.log(`KID: ${char.kids}`);
+    console.log('-------------------------');
 }
-let answer = readLine.question("Welcome to the great fortune place. Do you want to know your fortune? yes or no: ");
-while (answer != "yes" && answer != "no"){
-    console.log("invalid choice");
-    answer = readLine.question("Enter y or n: ");
-}
-
-
-let answer2 = readLine.question("Ask your question: ");
-
-let answer3 = readLine.question("ok see you later:");
-console.log("your welcome any time ");
-let answerList = ['It is certain.', 'Without a doubt.', 'My reply is no.', 'My sources say no.', 'Ask again later.', 'Reply hazy, try again'];
-
-let randomNum = Math.floor(Math.random()*answerList.length);
-
-let randomAnswer = answerList[randomNum];
-console.log(randomAnswer);
-
-
